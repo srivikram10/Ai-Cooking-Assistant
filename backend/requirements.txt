@@ -1,0 +1,9 @@
+flask
+google-genai
+python-dotenv
+deep-translator
+speechrecognition
+gtts
+playsound==1.2.2
+mysql-connector-python
+pyaudio

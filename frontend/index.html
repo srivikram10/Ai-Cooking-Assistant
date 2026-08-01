@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cooking Assistant — Step-by-Step Recipes</title>
+    <meta name="description" content="Get detailed, step-by-step cooking recipes with ingredients, nutrition facts, and pro tips powered by AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated background particles -->
+    <div class="bg-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-icon">🍳</span>
+                <div class="logo-text">
+                    <h1 id="app-title">AI Cooking Assistant</h1>
+                    <p class="tagline">Step-by-step recipes for any dish, powered by AI</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section" id="search-section">
+            <div class="search-card">
+                <div class="search-input-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input 
+                        type="text" 
+                        id="food-input" 
+                        placeholder="What would you like to cook? (e.g. Chicken Biryani, Pasta, Dosa...)"
+                        autocomplete="off"
+                    >
+                </div>
+                <div class="search-controls">
+                    <div class="lang-select-wrapper">
+                        <span class="lang-icon">🌐</span>
+                        <select id="lang-select">
+                            <option value="en">English</option>
+                            <option value="hi">हिन्दी (Hindi)</option>
+                            <option value="ta">தமிழ் (Tamil)</option>
+                            <option value="te">తెలుగు (Telugu)</option>
+                            <option value="ml">മലയാളം (Malayalam)</option>
+                            <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                            <option value="mr">मराठी (Marathi)</option>
+                            <option value="bn">বাংলা (Bengali)</option>
+                            <option value="gu">ગુજરાતી (Gujarati)</option>
+                            <option value="fr">Français (French)</option>
+                            <option value="es">Español (Spanish)</option>
+                            <option value="de">Deutsch (German)</option>
+                            <option value="ja">日本語 (Japanese)</option>
+                            <option value="ko">한국어 (Korean)</option>
+                            <option value="zh-CN">中文 (Chinese)</option>
+                            <option value="ar">العربية (Arabic)</option>
+                        </select>
+                    </div>
+                    <button id="recipe-btn" class="btn btn-primary" onclick="getRecipe()">
+                        <span class="btn-icon">✨</span>
+                        <span>Get Recipe</span>
+                    </button>
+                    <button id="voice-btn" class="btn btn-secondary" onclick="voiceRecipe()">
+                        <span class="btn-icon">🎤</span>
+                        <span>Voice</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Categories -->
+            <div class="categories" id="categories">
+                <button class="category-chip" onclick="quickSearch('Chicken Biryani')">🍗 Biryani</button>
+                <button class="category-chip" onclick="quickSearch('Butter Chicken')">🍛 Butter Chicken</button>
+                <button class="category-chip" onclick="quickSearch('Masala Dosa')">🫓 Dosa</button>
+                <button class="category-chip" onclick="quickSearch('Paneer Butter Masala')">🧀 Paneer</button>
+                <button class="category-chip" onclick="quickSearch('Pasta Carbonara')">🍝 Pasta</button>
+                <button class="category-chip" onclick="quickSearch('Sushi Roll')">🍣 Sushi</button>
+                <button class="category-chip" onclick="quickSearch('Pizza Margherita')">🍕 Pizza</button>
+                <button class="category-chip" onclick="quickSearch('Tacos Al Pastor')">🌮 Tacos</button>
+                <button class="category-chip" onclick="quickSearch('Pad Thai')">🥡 Pad Thai</button>
+                <button class="category-chip" onclick="quickSearch('Chocolate Cake')">🍫 Cake</button>
+                <button class="category-chip" onclick="quickSearch('Grilled Salmon')">🐟 Salmon</button>
+                <button class="category-chip" onclick="quickSearch('Quinoa Salad')">🥗 Salad</button>
+            </div>
+        </section>
+
+        <!-- Loading State -->
+        <div class="loading-container" id="loading-container">
+            <div class="loading-card">
+                <div class="cooking-animation">
+                    <span class="cook-emoji" id="cook-anim">🍳</span>
+                </div>
+                <p class="loading-text">Cooking up your recipe<span class="loading-dots"></span></p>
+                <p class="loading-sub">Our AI chef is preparing detailed instructions for you</p>
+            </div>
+        </div>
+
+        <!-- Recipe Output -->
+        <section class="recipe-section" id="recipe-section">
+            <div class="recipe-output" id="recipe-output">
+                <!-- Recipe content will be rendered here by JS -->
+            </div>
+
+            <button class="btn btn-ghost back-btn" id="back-btn" onclick="goBack()">
+                <span>← Search another dish</span>
+            </button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
